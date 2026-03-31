@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0B0C10;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+}
+
+.center {
+  margin-top: 40vh;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  color: #FF007F;
+}
+
+button {
+  background: linear-gradient(45deg, #FF007F, #B19CD9);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.photo img {
+  width: 200px;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.final {
+  margin-top: 30px;
+  opacity: 0.8;
+}
+
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
