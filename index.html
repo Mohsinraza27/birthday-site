@@ -4,31 +4,40 @@
 <meta charset="UTF-8">
 <title>For Bhaggu 💖</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 
 <body>
 
-<!-- Countdown -->
+<!-- Countdown Screen -->
 <div id="countdown-screen">
-  <h2>Something special is coming… 💖</h2>
+  <h2>Something special is coming for you, Bhaggu 💖</h2>
   <h1 id="countdown"></h1>
 </div>
 
-<!-- Main -->
+<!-- Main Content -->
 <div id="main" class="hidden">
 
-  <div class="chat-container" id="chat"></div>
+  <h1 class="title">Happy Birthday, Bhaggu 💖</h1>
+
+  <p id="typing"></p>
 
   <div class="photo-card">
     <img src="photo.jpeg">
   </div>
 
-  <button onclick="showReason()">Click slowly 😌</button>
+  <button onclick="showReason()">Click slowly… 😌</button>
   <p id="reason"></p>
 
+  <p class="final">
+    Happy Birthday again 💕<br>
+    Stay the same… that’s your magic ✨
+  </p>
+
+  <!-- Letter -->
   <button onclick="unlockLetter()">Open your letter 💌</button>
   <div id="letter" class="hidden letter-box">
     <p id="letterText"></p>
@@ -36,9 +45,12 @@
 
 </div>
 
+<!-- Music -->
 <audio id="music" src="music.mp3"></audio>
 
+<!-- Confetti -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <script src="script.js"></script>
 
 </body>

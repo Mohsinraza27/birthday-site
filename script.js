@@ -2,6 +2,7 @@
 let targetDate = new Date("April 6, 2026 00:00:00").getTime();
 
 let countdown = setInterval(() => {
+
   let now = new Date().getTime();
   let diff = targetDate - now;
 
@@ -14,54 +15,39 @@ let countdown = setInterval(() => {
 
   if (diff < 0) {
     clearInterval(countdown);
+
     document.getElementById("countdown-screen").style.display = "none";
     document.getElementById("main").classList.remove("hidden");
-    startChat();
+
+    startExperience();
   }
+
 }, 1000);
 
 
-/* CHAT FLOW */
-let messages = [
-  "Hey Bhaggu 👀",
-  "Happy Birthday 💖",
-  "Okay listen...",
-  "I could've sent a normal message",
-  "But that would've been boring 😄",
-  "So I made this",
-  "Not saying you're special or anything...",
-  "but like... you kinda are 😌",
-  "Also your smile?",
-  "Yeah... that’s actually unfair 😶‍🌫️",
-  "Anyway...",
-  "Enjoy your day",
-  "And don't get used to this effort 😄"
-];
-
-function startChat() {
-  let chat = document.getElementById("chat");
-  let i = 0;
+/* START EXPERIENCE */
+function startExperience() {
 
   let music = document.getElementById("music");
   music.play().catch(()=>{});
 
-  function sendMessage() {
-    if (i < messages.length) {
-      let div = document.createElement("div");
-      div.className = "message sent";
-      div.innerText = messages[i];
+  confetti({
+    particleCount: 200,
+    spread: 80
+  });
 
-      chat.appendChild(div);
-      chat.scrollTop = chat.scrollHeight;
-
-      i++;
-      setTimeout(sendMessage, 1200);
-    } else {
-      confetti({ particleCount: 200, spread: 80 });
-    }
-  }
-
-  sendMessage();
+  new Typed("#typing", {
+    strings: [
+      `I was thinking...<br><br>
+      just saying "Happy Birthday" would be boring.<br><br>
+      So I made this 😄<br><br>
+      Because you're not just random...<br>
+      you're actually kind of special.<br><br>
+      Like...<br>
+      the checking phone again type of special 📱✨`
+    ],
+    typeSpeed: 35
+  });
 }
 
 
@@ -70,6 +56,7 @@ let reasons = [
   "Because your smile is dangerous 😶‍🌫️",
   "Because you make days less boring",
   "Because your vibe is different",
+  "Because talking to you feels easy",
   "Because you're unintentionally funny 😄",
   "Because you're Bhaggu 😌"
 ];
@@ -80,6 +67,11 @@ function showReason() {
   if (r < reasons.length) {
     document.getElementById("reason").innerText = reasons[r];
     r++;
+
+    confetti({
+      particleCount: 40,
+      spread: 40
+    });
   }
 }
 
@@ -93,22 +85,23 @@ function unlockLetter() {
 
   let message = `Hey Bhaggu,
 
-Okay… don’t get used to this 😄
+I know this is a bit different 😄  
 
-I just didn’t want to be boring.
+But I just wanted to do something simple…  
+and a little special for you.
 
-But honestly…
-I do enjoy talking to you.
+You're honestly someone I enjoy talking to.  
+Like genuinely.
 
-You’ve got this calm + confusing vibe
-and I kinda like it.
+You have a calm and nice vibe  
+that just makes everything feel easy.
 
-Don’t overthink this 😌
+And that’s rare.
 
-Just know…
-you’re a little special.
+So yeah…  
+just wanted to say that today.
 
-Happy Birthday 💖`;
+Happy Birthday once again 💖`;
 
   let i = 0;
 
@@ -121,4 +114,9 @@ Happy Birthday 💖`;
   }
 
   typeLetter();
+
+  confetti({
+    particleCount: 200,
+    spread: 80
+  });
 }
