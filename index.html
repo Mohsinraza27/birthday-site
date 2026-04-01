@@ -1,54 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For Bhaggu 💖</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>For Bhaggu 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-<div class="container">
+<!-- Countdown -->
+<div id="countdown-screen">
+  <h2>Something special is coming… 💖</h2>
+  <h1 id="countdown"></h1>
+</div>
 
-  <!-- Entry -->
-  <div id="entry" class="center">
-    <p>Hey Bhaggu… 👀</p>
-    <button onclick="start()">🎁 Open</button>
+<!-- Main -->
+<div id="main" class="hidden">
+
+  <div class="chat-container" id="chat"></div>
+
+  <div class="photo-card">
+    <img src="photo.jpeg">
   </div>
 
-  <!-- Main Content -->
-  <div id="main" class="hidden">
+  <button onclick="showReason()">Click slowly 😌</button>
+  <p id="reason"></p>
 
-    <h1>Happy Birthday, Bhaggu 💖</h1>
-
-    <!-- Typing -->
-    <p id="typing"></p>
-
-    <!-- Photo -->
-    <div class="photo">
-      <img src="photo.jpg" alt="Bhaggu">
-    </div>
-
-    <!-- Reasons -->
-    <button onclick="showReason()">Click slowly… 😌</button>
-    <p id="reason"></p>
-
-    <!-- Final -->
-    <p class="final">
-      Happy Birthday again 💕<br>
-      Stay the same… that’s your magic ✨
-    </p>
-
+  <button onclick="unlockLetter()">Open your letter 💌</button>
+  <div id="letter" class="hidden letter-box">
+    <p id="letterText"></p>
   </div>
 
 </div>
 
-<!-- Music -->
 <audio id="music" src="music.mp3"></audio>
-<button class="music-btn" onclick="toggleMusic()">🎵</button>
 
-<!-- Confetti -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
 <script src="script.js"></script>
+
 </body>
 </html>

@@ -1,50 +1,75 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0B0C10;
-  color: white;
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* Countdown */
+#countdown-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
-.container {
-  padding: 20px;
+#countdown {
+  font-size: 40px;
+  color: #ff4d8d;
 }
 
-.center {
-  margin-top: 40vh;
+/* Chat */
+.chat-container {
+  padding: 15px;
 }
 
-.hidden {
-  display: none;
+.message {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 15px;
+  margin: 8px;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-h1 {
-  color: #FF007F;
+.sent {
+  background: #ff4d8d;
+  margin-left: auto;
 }
 
-button {
-  background: linear-gradient(45deg, #FF007F, #B19CD9);
-  border: none;
-  padding: 12px 20px;
-  border-radius: 20px;
-  color: white;
-  cursor: pointer;
-  margin-top: 15px;
+.received {
+  background: #1f1f1f;
 }
 
-.photo img {
+/* Photo */
+.photo-card img {
   width: 200px;
   border-radius: 15px;
-  margin: 20px 0;
+  margin: 20px auto;
+  display: block;
 }
 
-.final {
-  margin-top: 30px;
-  opacity: 0.8;
+/* Buttons */
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #ff4d8d, #b19cd9);
+  color: white;
 }
 
-.music-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+/* Letter */
+.letter-box {
+  margin: 20px;
+  padding: 20px;
+  background: #111;
+  border-radius: 12px;
+}
+
+/* Hidden */
+.hidden {
+  display: none;
 }
