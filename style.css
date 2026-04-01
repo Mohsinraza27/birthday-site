@@ -1,81 +1,82 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #000;
+  background: radial-gradient(circle at top, #111, #000);
   color: #fff;
+  text-align: center;
 }
 
-/* Countdown */
-#countdown-screen {
+/* Start Screen */
+#start-screen {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
 }
 
-#countdown {
-  font-size: 70px;
+/* Title */
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
   color: #ff4d8d;
-  animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  margin-top: 20px;
 }
 
 /* Chat */
 .chat-container {
-  padding: 15px;
+  padding: 20px;
 }
 
 .message {
-  max-width: 75%;
-  padding: 10px 14px;
-  border-radius: 15px;
-  margin: 8px;
-  font-size: 14px;
-  line-height: 1.5;
+  max-width: 85%;
+  padding: 14px 18px;
+  border-radius: 18px;
+  margin: 10px;
+  font-size: 17px; /* BIGGER TEXT */
+  line-height: 1.7;
 }
 
 .sent {
-  background: #ff4d8d;
+  background: linear-gradient(45deg, #ff4d8d, #b19cd9);
   margin-left: auto;
+}
+
+/* Typing bubble */
+.typing {
+  width: 60px;
+  height: 20px;
+  background: #333;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 /* Photo */
 .photo-card img {
-  width: 200px;
-  border-radius: 15px;
-  margin: 20px auto;
-  display: block;
-  box-shadow: 0 0 25px rgba(255,77,141,0.3);
+  width: 250px;
+  border-radius: 20px;
+  margin: 25px 0;
+  box-shadow: 0 0 30px rgba(255,77,141,0.3);
 }
 
 /* Buttons */
 button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
+  padding: 14px 24px;
+  border-radius: 25px;
   border: none;
-  border-radius: 20px;
   background: linear-gradient(45deg, #ff4d8d, #b19cd9);
   color: white;
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.05);
+  font-size: 16px;
+  margin: 10px;
 }
 
 /* Letter */
 .letter-box {
   margin: 20px;
   padding: 20px;
-  background: #111;
-  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  font-size: 17px;
+  line-height: 1.8;
 }
 
 /* Hidden */
