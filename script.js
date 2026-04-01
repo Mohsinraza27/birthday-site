@@ -1,53 +1,64 @@
-/* COUNTDOWN */
-let targetDate = new Date("April 6, 2026 00:00:00").getTime();
+/* 60 SECOND COUNTDOWN */
+let timeLeft = 60;
 
-let countdown = setInterval(() => {
+let timer = setInterval(() => {
+  document.getElementById("countdown").innerText = timeLeft;
 
-  let now = new Date().getTime();
-  let diff = targetDate - now;
+  timeLeft--;
 
-  let hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-  let minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
-  let seconds = Math.floor((diff % (1000*60)) / 1000);
-
-  document.getElementById("countdown").innerHTML =
-    hours + "h " + minutes + "m " + seconds + "s";
-
-  if (diff < 0) {
-    clearInterval(countdown);
+  if (timeLeft < 0) {
+    clearInterval(timer);
 
     document.getElementById("countdown-screen").style.display = "none";
     document.getElementById("main").classList.remove("hidden");
 
-    startExperience();
+    startChat();
   }
 
 }, 1000);
 
 
-/* START EXPERIENCE */
-function startExperience() {
+/* CHAT FLOW */
+let messages = [
+  "Hey Bhaggu 👀",
+  "Happy Birthday 💖",
+  "Okay listen...",
+  "I could've sent a normal message",
+  "But that would've been boring 😄",
+  "So I made this",
+  "Not saying you're special or anything...",
+  "but like... you kinda are 😌",
+  "Also your smile?",
+  "Yeah... that’s actually unfair 😶‍🌫️",
+  "Anyway...",
+  "Enjoy your day",
+  "And don't get used to this effort 😄"
+];
+
+function startChat() {
+  let chat = document.getElementById("chat");
+  let i = 0;
 
   let music = document.getElementById("music");
   music.play().catch(()=>{});
 
-  confetti({
-    particleCount: 200,
-    spread: 80
-  });
+  function sendMessage() {
+    if (i < messages.length) {
+      let div = document.createElement("div");
+      div.className = "message sent";
+      div.innerText = messages[i];
 
-  new Typed("#typing", {
-    strings: [
-      `I was thinking...<br><br>
-      just saying "Happy Birthday" would be boring.<br><br>
-      So I made this 😄<br><br>
-      Because you're not just random...<br>
-      you're actually kind of special.<br><br>
-      Like...<br>
-      the checking phone again type of special 📱✨`
-    ],
-    typeSpeed: 35
-  });
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+
+      i++;
+      setTimeout(sendMessage, 1200);
+    } else {
+      confetti({ particleCount: 200, spread: 80 });
+    }
+  }
+
+  sendMessage();
 }
 
 
@@ -56,7 +67,6 @@ let reasons = [
   "Because your smile is dangerous 😶‍🌫️",
   "Because you make days less boring",
   "Because your vibe is different",
-  "Because talking to you feels easy",
   "Because you're unintentionally funny 😄",
   "Because you're Bhaggu 😌"
 ];
@@ -67,11 +77,6 @@ function showReason() {
   if (r < reasons.length) {
     document.getElementById("reason").innerText = reasons[r];
     r++;
-
-    confetti({
-      particleCount: 40,
-      spread: 40
-    });
   }
 }
 
@@ -85,23 +90,22 @@ function unlockLetter() {
 
   let message = `Hey Bhaggu,
 
-I know this is a bit different 😄  
+Okay… don’t get used to this 😄
 
-But I just wanted to do something simple…  
-and a little special for you.
+I just didn’t want to be boring.
 
-You're honestly someone I enjoy talking to.  
-Like genuinely.
+But honestly…
+I do enjoy talking to you.
 
-You have a calm and nice vibe  
-that just makes everything feel easy.
+You’ve got this calm + confusing vibe
+and I kinda like it.
 
-And that’s rare.
+Don’t overthink this 😌
 
-So yeah…  
-just wanted to say that today.
+Just know…
+you’re a little special.
 
-Happy Birthday once again 💖`;
+Happy Birthday 💖`;
 
   let i = 0;
 
@@ -114,9 +118,4 @@ Happy Birthday once again 💖`;
   }
 
   typeLetter();
-
-  confetti({
-    particleCount: 200,
-    spread: 80
-  });
 }
