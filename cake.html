@@ -4,26 +4,22 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<div class="cake-screen">
 
-<h1>Make a wish 🎂</h1>
+  <div class="cake">🎂</div>
+  <div id="candle">🕯️</div>
 
-<div class="cake">🎂🕯️</div>
+  <button onclick="blowCandle()">Blow Candle 💨</button>
+  <button onclick="goHome()">🏠 Home</button>
 
-<button onclick="blow()">Blow Candle 💨</button>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-<script>
-function blow(){
- confetti({particleCount:300,spread:100});
- alert("Wish accepted 💖");
-
- setTimeout(()=>{
-   window.location="letter.html";
- },2000);
-}
-</script>
+<script src="script.js"></script>
 
 </body>
+
 </html>
+
+
+

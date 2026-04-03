@@ -1,72 +1,41 @@
+/* START EXPERIENCE (MUSIC FIXED) */
 function startExperience() {
-  document.getElementById("start-screen").style.display = "none";
-  document.getElementById("main").classList.remove("hidden");
 
   let m1 = document.getElementById("music1");
+
   m1.volume = 0.4;
-  m1.play();
 
-  startChat();
-}
-function toggleMusic() {
-  let m = document.getElementById("music1");
+  m1.play().then(()=>{
+    console.log("music started");
+  }).catch(()=>{
+    alert("Tap again if music didn’t start 💖");
+  });
 
-  if (m.paused) {
-    m.play();
-  } else {
-    m.pause();
-  }
-}
-
-function unlockLetter() {
-  let m1 = document.getElementById("music1");
-  let m2 = document.getElementById("music2");
-
-  let fade = setInterval(() => {
-    if (m1.volume > 0.05) {
-      m1.volume -= 0.05;
-    } else {
-      clearInterval(fade);
-      m1.pause();
-
-      m2.volume = 0;
-      m2.play();
-
-      let fadeIn = setInterval(() => {
-        if (m2.volume < 0.5) {
-          m2.volume += 0.05;
-        } else {
-          clearInterval(fadeIn);
-        }
-      }, 200);
-    }
-  }, 200);
-
-  // letter logic continues
+  window.location = "chat.html";
 }
 
 
-
-/* CHAT WITH TYPING EFFECT */
-let messages = [
-  "Hey Bhaggu 👀",
-  "Happy Birthday 💖",
-  "I could've sent a normal message...",
-  "But that would've been too boring 😄",
-  "So I made this instead",
-  "Because you're not just random...",
-  "you're actually kinda special 😌",
-  "And your smile?",
-  "Yeah... that’s actually unfair 😶‍🌫️",
-  "Not gonna say too much...",
-  "Just enjoy your day 💫"
-];
-
+/* CHAT FLOW WITH TYPING */
 function startChat() {
+
+  let messages = [
+    "Hey Bhaggu 👀",
+    "Happy Birthday 💖",
+    "I could've sent a normal message...",
+    "But that wouldn’t feel right 😄",
+    "So I made this",
+    "Because you're not just random...",
+    "you’re actually kinda special 😌",
+    "And your smile?",
+    "Yeah… that’s actually unfair 😶‍🌫️"
+  ];
+
   let chat = document.getElementById("chat");
+
   let i = 0;
 
-  function sendMessage() {
+  function send() {
+
     if (i < messages.length) {
 
       let typing = document.createElement("div");
@@ -74,87 +43,123 @@ function startChat() {
       chat.appendChild(typing);
 
       setTimeout(() => {
+
         typing.remove();
 
-        let div = document.createElement("div");
-        div.className = "message sent";
-        div.innerText = messages[i];
+        let msg = document.createElement("div");
+        msg.className = "msg";
+        msg.innerText = messages[i];
 
-        chat.appendChild(div);
+        chat.appendChild(msg);
         chat.scrollTop = chat.scrollHeight;
 
         i++;
-        sendMessage();
-      }, 1000);
+        send();
 
-    } else {
-      confetti({ particleCount: 200, spread: 80 });
+      }, 1000);
     }
   }
 
-  sendMessage();
+  send();
 }
 
-/* REASONS */
-let reasons = [
-  "Because your smile is dangerous 😶‍🌫️",
-  "Because you make everything feel lighter",
-  "Because your vibe is actually different",
-  "Because you're unintentionally funny 😄",
-  "Because you're Bhaggu 😌"
-];
 
-let r = 0;
+/* NAVIGATION */
+function goMemory(){ window.location="memory.html"; }
+function goCake(){ window.location="cake.html"; }
+function goLetter(){ window.location="letter.html"; }
+function goHome(){ window.location="index.html"; }
 
-function showReason() {
-  if (r < reasons.length) {
-    document.getElementById("reason").innerText = reasons[r];
-    r++;
+
+/* CAKE */
+function blowCandle(){
+
+  document.getElementById("candle").innerText = "💨";
+
+  confetti({
+    particleCount: 400,
+    spread: 120
+  });
+
+  setTimeout(goLetter, 2000);
+}
+
+
+/* LETTER MUSIC SWITCH */
+function playLetterMusic(){
+
+  let m1 = document.getElementById("music1");
+  let m2 = document.getElementById("music2");
+
+  if(m1){
+    let fade = setInterval(()=>{
+      if(m1.volume > 0.05){
+        m1.volume -= 0.05;
+      } else {
+        clearInterval(fade);
+        m1.pause();
+      }
+    },200);
+  }
+
+  if(m2){
+    m2.volume = 0;
+    m2.play();
+
+    let fadeIn = setInterval(()=>{
+      if(m2.volume < 0.5){
+        m2.volume += 0.05;
+      } else {
+        clearInterval(fadeIn);
+      }
+    },200);
   }
 }
 
-/* LETTER */
-function unlockLetter() {
-  let box = document.getElementById("letter");
-  let text = document.getElementById("letterText");
 
-  box.classList.remove("hidden");
+/* LETTER TYPING */
+function startLetter(){
 
-  let message = `Hey Bhaggu,
+  playLetterMusic();
 
-Okay… this is me trying something different 😄  
+  let text = `Hey Bhaggu 💖,
 
-I didn’t want to just send a simple message  
-and disappear like everyone else.
+I know this is not something normal...
 
-Because honestly…  
-you’re not just “another person”.
+But honestly, you’re not normal either.
 
-You have this calm, soft vibe  
-that makes everything feel easy.
+You have this soft, calm, and slightly confusing vibe
+that makes people stay a little longer than they planned.
 
-And without even trying…  
-you became someone I actually enjoy talking to.
+And yeah…
+I didn’t expect to enjoy talking to you this much.
 
-Not saying too much 😌  
+But I do.
 
-But yeah…  
-you’re special in your own way.
+You make things feel easy…
+and that’s rare.
 
-Stay like this.
+I hope today gives you everything you deserve:
+smiles, peace, happiness,
+and those random little moments
+that stay in your memory.
 
-Happy Birthday 💖`;
+Stay exactly like this…
 
+Because that’s your magic ✨
+
+Happy Birthday Bhaggu 💖`;
+
+  let el = document.getElementById("letterText");
   let i = 0;
 
-  function typeLetter() {
-    if (i < message.length) {
-      text.innerHTML += message.charAt(i);
+  function type(){
+    if(i < text.length){
+      el.innerHTML += text[i];
       i++;
-      setTimeout(typeLetter, 20);
+      setTimeout(type, 20);
     }
   }
 
-  typeLetter();
-}you tube.com
-
+  type();
+}

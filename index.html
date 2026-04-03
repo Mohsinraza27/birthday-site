@@ -1,37 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Happy 17 BirthDay Bhaggu 💖</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
 <body>
 
-<div class="center">
-  <h1>Hey Bhaggu 💖</h1>
-  <p>Something special is waiting...</p>
+<div class="center-screen">
+  <h1 class="title">Happy 17 BirthDay Bhaggu 💖</h1>
+  <p>Something special is waiting for you...</p>
 
-  <h2 id="countdown">10</h2>
-
-  <button onclick="goNext()">Enter ✨</button>
-  <button onclick="toggleMusic()">🎵 Toggle Music</button>
+  <button onclick="startExperience()">Start ✨</button>
 </div>
 
-<script>
-let t = 10;
-let timer = setInterval(()=>{
-  document.getElementById("countdown").innerText = t;
-  t--;
-  if(t<0) clearInterval(timer);
-},1000);
-
-function goNext(){
-  window.location.href = "chat.html";
-}
-</script>
-
 <audio id="music1" src="music.mp3"></audio>
-<audio id="music2" src="music2.mp3"></audio>
+
+<script src="script.js"></script>
 
 </body>
-</html>

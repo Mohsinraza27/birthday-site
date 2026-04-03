@@ -1,29 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="style.css">
-</head>
+<body onload="startLetter()">
 
-<body>
+<h1 class="title">For You 💖</h1>
 
-<h1>Make a wish 🎂</h1>
+<div id="letterText" class="letter-box"></div>
 
-<div class="cake">🎂🕯️</div>
+<audio id="music2" src="music2.mp3"></audio>
 
-<button onclick="blow()">Blow Candle 💨</button>
+<button onclick="goHome()">🏠 Back to Start</button>
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-<script>
-function blow(){
- confetti({particleCount:300,spread:100});
- alert("Wish accepted 💖");
-
- setTimeout(()=>{
-   window.location="letter.html";
- },2000);
-}
-</script>
+<script src="script.js"></script>
 
 </body>
-</html>
