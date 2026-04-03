@@ -44,7 +44,81 @@ body{
 }
 
 /* Image */
-.photo{
+.photo{/* GLOBAL MOBILE OPTIMIZATION */
+body {
+  margin: 0;
+  background: #000;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* BIG TITLE (Responsive) */
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 10vw;   /* 🔥 auto-scale on mobile */
+  color: #ff4d8d;
+  margin-top: 20px;
+}
+
+/* MESSAGE TEXT */
+.letter-box {
+  margin: 20px;
+  padding: 20px;
+  background: rgba(20,20,20,0.8);
+  border-radius: 15px;
+
+  font-size: 5vw;   /* 🔥 FIX readability */
+  line-height: 1.8;
+
+  backdrop-filter: blur(10px);
+}
+
+/* CHAT TEXT */
+.msg {
+  font-size: 5vw;   /* 🔥 FIX */
+}
+
+/* BUTTON */
+button {
+  font-size: 4.5vw;
+  padding: 14px 25px;
+}
+
+/* IMAGE */
+.photo {
+  width: 80%;
+  max-width: 300px;
+}
+
+/* CAKE BIGGER */
+.cake {
+  font-size: 40vw;   /* 🔥 FULL SCREEN FEEL */
+  text-shadow: 0 0 60px #ff4d8d;
+}
+
+/* CANDLE */
+#candle {
+  font-size: 12vw;
+}
+
+/* 🌸 FLOWER BACKGROUND */
+body::before {
+  content: "🌸 🌺 🌷 💐 🌹 🌼";
+  position: fixed;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  font-size: 8vw;
+  opacity: 0.1;
+  animation: floatFlowers 20s linear infinite;
+}
+
+@keyframes floatFlowers {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(120vh); }
+}
   width:260px;
   border-radius:20px;
 }
@@ -92,4 +166,80 @@ button{
   background:linear-gradient(45deg,#ff4d8d,#b19cd9);
   color:white;
   font-size:16px;
+}
+
+/* GLOBAL MOBILE OPTIMIZATION */
+body {
+  margin: 0;
+  background: #000;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* BIG TITLE (Responsive) */
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 10vw;   /* 🔥 auto-scale on mobile */
+  color: #ff4d8d;
+  margin-top: 20px;
+}
+
+/* MESSAGE TEXT */
+.letter-box {
+  margin: 20px;
+  padding: 20px;
+  background: rgba(20,20,20,0.8);
+  border-radius: 15px;
+
+  font-size: 5vw;   /* 🔥 FIX readability */
+  line-height: 1.8;
+
+  backdrop-filter: blur(10px);
+}
+
+/* CHAT TEXT */
+.msg {
+  font-size: 5vw;   /* 🔥 FIX */
+}
+
+/* BUTTON */
+button {
+  font-size: 4.5vw;
+  padding: 14px 25px;
+}
+
+/* IMAGE */
+.photo {
+  width: 80%;
+  max-width: 300px;
+}
+
+/* CAKE BIGGER */
+.cake {
+  font-size: 40vw;   /* 🔥 FULL SCREEN FEEL */
+  text-shadow: 0 0 60px #ff4d8d;
+}
+
+/* CANDLE */
+#candle {
+  font-size: 12vw;
+}
+
+/* 🌸 FLOWER BACKGROUND */
+body::before {
+  content: "🌸 🌺 🌷 💐 🌹 🌼";
+  position: fixed;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  font-size: 8vw;
+  opacity: 0.1;
+  animation: floatFlowers 20s linear infinite;
+}
+
+@keyframes floatFlowers {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(120vh); }
 }

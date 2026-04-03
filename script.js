@@ -1,66 +1,42 @@
-/* START EXPERIENCE (MUSIC FIXED) */
+/* START EXPERIENCE */
 function startExperience() {
+  let music = document.getElementById("music");
 
-  let m1 = document.getElementById("music1");
+  music.volume = 0.4;
 
-  m1.volume = 0.4;
-
-  m1.play().then(()=>{
-    console.log("music started");
-  }).catch(()=>{
-    alert("Tap again if music didn’t start 💖");
+  music.play().catch(() => {
+    alert("Tap again 💖");
   });
 
   window.location = "chat.html";
 }
 
 
-/* CHAT FLOW WITH TYPING */
+/* CHAT (WHATSAPP STYLE FLOW) */
 function startChat() {
 
   let messages = [
     "Hey Bhaggu 👀",
     "Happy Birthday 💖",
-    "I could've sent a normal message...",
-    "But that wouldn’t feel right 😄",
+    "I could’ve sent a normal message...",
+    "But that would've been boring 😄",
     "So I made this",
     "Because you're not just random...",
-    "you’re actually kinda special 😌",
+    "you're actually kinda special 😌",
     "And your smile?",
     "Yeah… that’s actually unfair 😶‍🌫️"
   ];
 
   let chat = document.getElementById("chat");
 
-  let i = 0;
-
-  function send() {
-
-    if (i < messages.length) {
-
-      let typing = document.createElement("div");
-      typing.className = "typing";
-      chat.appendChild(typing);
-
-      setTimeout(() => {
-
-        typing.remove();
-
-        let msg = document.createElement("div");
-        msg.className = "msg";
-        msg.innerText = messages[i];
-
-        chat.appendChild(msg);
-        chat.scrollTop = chat.scrollHeight;
-
-        i++;
-        send();
-
-      }, 1000);
-    }
-  }
-
-  send();
+  messages.forEach((msg, i) => {
+    setTimeout(() => {
+      let div = document.createElement("div");
+      div.className = "msg";
+      div.innerText = msg;
+      chat.appendChild(div);
+    }, i * 1200);
+  });
 }
 
 
@@ -81,68 +57,41 @@ function blowCandle(){
     spread: 120
   });
 
-  setTimeout(goLetter, 2000);
+  setTimeout(() => {
+    window.location = "letter.html";
+  }, 2000);
 }
 
 
-/* LETTER MUSIC SWITCH */
-function playLetterMusic(){
-
-  let m1 = document.getElementById("music1");
-  let m2 = document.getElementById("music2");
-
-  if(m1){
-    let fade = setInterval(()=>{
-      if(m1.volume > 0.05){
-        m1.volume -= 0.05;
-      } else {
-        clearInterval(fade);
-        m1.pause();
-      }
-    },200);
-  }
-
-  if(m2){
-    m2.volume = 0;
-    m2.play();
-
-    let fadeIn = setInterval(()=>{
-      if(m2.volume < 0.5){
-        m2.volume += 0.05;
-      } else {
-        clearInterval(fadeIn);
-      }
-    },200);
-  }
-}
-
-
-/* LETTER TYPING */
+/* LETTER */
 function startLetter(){
-
-  playLetterMusic();
 
   let text = `Hey Bhaggu 💖,
 
-I know this is not something normal...
+I didn’t want to just send a simple message…
 
-But honestly, you’re not normal either.
+So I made this.
 
-You have this soft, calm, and slightly confusing vibe
-that makes people stay a little longer than they planned.
+Because honestly…
+you’re not just another person.
+
+There’s something about you,
+your vibe, your smile,
+and the way you make everything feel easy.
+
+It’s rare.
+
+You have this calm energy
+that makes people stay longer than they planned.
 
 And yeah…
-I didn’t expect to enjoy talking to you this much.
+I might not say it a lot…
 
-But I do.
-
-You make things feel easy…
-and that’s rare.
+But you’re special.
 
 I hope today gives you everything you deserve:
-smiles, peace, happiness,
-and those random little moments
-that stay in your memory.
+smiles, happiness, peace,
+and those small moments that stay forever.
 
 Stay exactly like this…
 
