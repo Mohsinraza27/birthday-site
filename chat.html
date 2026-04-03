@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="chat"></div>
+
+<button onclick="next()">Next ➡️</button>
+
+<script>
+let msgs = [
+"Hey Bhaggu 👀",
+"Happy Birthday 💖",
+"I made something for you",
+"Because you're special 😌",
+"And your smile?",
+"Yeah... unfair 😶‍🌫️"
+];
+
+let chat = document.getElementById("chat");
+
+msgs.forEach((m,i)=>{
+  setTimeout(()=>{
+    let d=document.createElement("div");
+    d.className="msg";
+    d.innerText=m;
+    chat.appendChild(d);
+  },i*1200);
+});
+
+function next(){
+ window.location="memory.html";
+}
+</script>
+
+</body>
+</html>
