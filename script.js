@@ -2,11 +2,50 @@ function startExperience() {
   document.getElementById("start-screen").style.display = "none";
   document.getElementById("main").classList.remove("hidden");
 
-  let music = document.getElementById("music");
-  music.play();
+  let m1 = document.getElementById("music1");
+  m1.volume = 0.4;
+  m1.play();
 
   startChat();
 }
+function toggleMusic() {
+  let m = document.getElementById("music1");
+
+  if (m.paused) {
+    m.play();
+  } else {
+    m.pause();
+  }
+}
+
+function unlockLetter() {
+  let m1 = document.getElementById("music1");
+  let m2 = document.getElementById("music2");
+
+  let fade = setInterval(() => {
+    if (m1.volume > 0.05) {
+      m1.volume -= 0.05;
+    } else {
+      clearInterval(fade);
+      m1.pause();
+
+      m2.volume = 0;
+      m2.play();
+
+      let fadeIn = setInterval(() => {
+        if (m2.volume < 0.5) {
+          m2.volume += 0.05;
+        } else {
+          clearInterval(fadeIn);
+        }
+      }, 200);
+    }
+  }, 200);
+
+  // letter logic continues
+}
+
+
 
 /* CHAT WITH TYPING EFFECT */
 let messages = [
