@@ -6,20 +6,24 @@ function playMusic() {
 
   let isPlaying = sessionStorage.getItem("musicPlaying");
 
-  if (!isPlaying) {
-    music.volume = 0.4;
-
-    music.play().then(() => {
-      sessionStorage.setItem("musicPlaying", "true");
-    }).catch(() => {});
+  if (isPlaying === "true") {
+    music.currentTime = 0;  // reset issue fix
+    music.play().catch(()=>{});
   }
 }
 
 /* START */
 function startExperience() {
-  sessionStorage.setItem("musicPlaying", "false");
-  playMusic();
-  window.location = "chat.html";
+  let music = document.getElementById("music");
+
+  music.volume = 0.4;
+
+  music.play().then(() => {
+    sessionStorage.setItem("musicPlaying", "true");
+    window.location = "chat.html";
+  }).catch(() => {
+    alert("Tap again 💖");
+  });
 }
 
 /* CHAT FLOW */
@@ -116,6 +120,8 @@ Happy Birthday Bhaggu 💖`;
       el.innerHTML += text[i];
       i++;
       setTimeout(type, 18);
+    } else {
+      el.classList.add("show"); // 🔥 FIX
     }
   }
 
@@ -136,4 +142,5 @@ function revealOnScroll() {
   });
 }
 
+window.addEventListener("load", revealOnScroll);
 window.addEventListener("scroll", revealOnScroll);
