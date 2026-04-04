@@ -1,16 +1,31 @@
+/* GLOBAL MUSIC CONTROL */
+function playMusic() {
+  let music = document.getElementById("music");
+
+  if (!music) return;
+
+  let isPlaying = localStorage.getItem("musicPlaying");
+
+  if (isPlaying !== "true") {
+    music.volume = 0.4;
+
+    music.play().then(() => {
+      localStorage.setItem("musicPlaying", "true");
+    }).catch(() => {});
+  }
+}
+
 /* START EXPERIENCE */
 function startExperience() {
   let music = document.getElementById("music");
 
   music.volume = 0.4;
 
-  music.play().catch(() => {
-    alert("Tap again 💖");
-  });
-
+  music.plafunction startExperience() {
+  localStorage.setItem("musicPlaying", "false");
+  playMusic();
   window.location = "chat.html";
 }
-
 
 /* CHAT (WHATSAPP STYLE FLOW) */
 function startChat() {
