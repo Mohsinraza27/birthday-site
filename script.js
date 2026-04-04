@@ -9,7 +9,6 @@ function saveMusicTime() {
 /* GLOBAL MUSIC CONTROL */
 function playMusic() {
   let music = document.getElementById("music");
-
   if (!music) return;
 
   let savedTime = sessionStorage.getItem("musicTime");
@@ -22,12 +21,10 @@ function playMusic() {
 
   music.play().catch(()=>{});
 
-  // keep updating time
   setInterval(() => {
     saveMusicTime();
   }, 500);
 }
-
 
 /* START */
 function startExperience() {
@@ -45,7 +42,6 @@ function startExperience() {
 
 /* CHAT FLOW */
 function startChat() {
-
   let messages = [
     "Hey Bhaggu 👀",
     "Happy Birthday 💖",
@@ -101,11 +97,11 @@ function startLetter(){
 
 I know this is a bit different…
 
-But you’re not random/someone I wanted to wish in a “normal” way.
+But you’re not someone I wanted to wish in a “normal” way.
 
 Because honestly…
 you’re not normal.
-you're special...
+you’re special...
 
 There’s something about you,
 your vibe, your calmness,
@@ -153,9 +149,9 @@ I’m really glad I got to know you 🌸
 
 Happy Birthday Bhaggu 💖
 
-And the final thing 
-If You like it 
-then remmember me in Your Prayers....`;
+And one last thing…
+If you liked this,
+remember me in your prayers 🤍`;
 
   let el = document.getElementById("letterText");
   let i = 0;
@@ -166,14 +162,15 @@ then remmember me in Your Prayers....`;
       i++;
       setTimeout(type, 18);
     } else {
-  el.classList.add("show");
+      el.classList.add("show");
 
-  setTimeout(() => {
-    alert("One more thing… you really matter 💖");
-  }, 2000);
-}
+      setTimeout(() => {
+        alert("One more thing… you really matter 💖");
+      }, 2000);
+    }
+  }
 
-  type();
+  type(); // ✅ correctly placed
 }
 
 /* SCROLL ANIMATION */
