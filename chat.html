@@ -1,15 +1,17 @@
-<body onload="playMusic()">
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-<h1 class="title">Just one moment… 💫</h1>
+<body onload="playMusic(); startChat()">
 
-<img src="photo.jpeg" class="photo">
+<div id="chat" class="chat-box"></div>
 
-<p style="font-size:5vw;">This moment feels different… 😌</p>
-
-<button onclick="goCake()">Next ➡️</button>
+<button onclick="goMemory()">Next ➡️</button>
 
 <audio id="music" src="music.mp3" loop></audio>
 
 <script src="script.js"></script>
-
 </body>
+</html>

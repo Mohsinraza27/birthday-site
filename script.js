@@ -4,30 +4,25 @@ function playMusic() {
 
   if (!music) return;
 
-  let isPlaying = localStorage.getItem("musicPlaying");
+  let isPlaying = sessionStorage.getItem("musicPlaying");
 
-  if (isPlaying !== "true") {
+  if (!isPlaying) {
     music.volume = 0.4;
 
     music.play().then(() => {
-      localStorage.setItem("musicPlaying", "true");
+      sessionStorage.setItem("musicPlaying", "true");
     }).catch(() => {});
   }
 }
 
-/* START EXPERIENCE */
+/* START */
 function startExperience() {
-  let music = document.getElementById("music");
-
-  music.volume = 0.4;
-
-  music.plafunction startExperience() {
-  localStorage.setItem("musicPlaying", "false");
+  sessionStorage.setItem("musicPlaying", "false");
   playMusic();
   window.location = "chat.html";
 }
 
-/* CHAT (WHATSAPP STYLE FLOW) */
+/* CHAT FLOW */
 function startChat() {
 
   let messages = [
@@ -50,25 +45,26 @@ function startChat() {
       div.className = "msg";
       div.innerText = msg;
       chat.appendChild(div);
-    }, i * 1200);
+
+      setTimeout(() => {
+        div.classList.add("show");
+      }, 100);
+
+    }, i * 1300);
   });
 }
-
 
 /* NAVIGATION */
 function goMemory(){ window.location="memory.html"; }
 function goCake(){ window.location="cake.html"; }
-function goLetter(){ window.location="letter.html"; }
 function goHome(){ window.location="index.html"; }
-
 
 /* CAKE */
 function blowCandle(){
-
   document.getElementById("candle").innerText = "💨";
 
   confetti({
-    particleCount: 400,
+    particleCount: 300,
     spread: 120
   });
 
@@ -77,36 +73,34 @@ function blowCandle(){
   }, 2000);
 }
 
-
 /* LETTER */
 function startLetter(){
 
   let text = `Hey Bhaggu 💖,
 
-I didn’t want to just send a simple message…
+Okay… this is me trying something different 😌
 
-So I made this.
+I didn’t want to just send a message and disappear like everyone else.
 
 Because honestly…
-you’re not just another person.
+you’re not just "another person".
 
-There’s something about you,
-your vibe, your smile,
-and the way you make everything feel easy.
+You have this calm, soft vibe
+that makes everything feel easy.
 
-It’s rare.
+And without even trying…
+you become someone people enjoy talking to.
 
-You have this calm energy
-that makes people stay longer than they planned.
+Not saying too much 😄
 
-And yeah…
-I might not say it a lot…
+But yeah…
+you’re special in your own way.
 
-But you’re special.
+And your smile?
+Yeah… that’s still unfair 🌼
 
-I hope today gives you everything you deserve:
-smiles, happiness, peace,
-and those small moments that stay forever.
+I hope today gives you everything:
+happiness, peace, and moments you remember forever.
 
 Stay exactly like this…
 
@@ -121,9 +115,25 @@ Happy Birthday Bhaggu 💖`;
     if(i < text.length){
       el.innerHTML += text[i];
       i++;
-      setTimeout(type, 20);
+      setTimeout(type, 18);
     }
   }
 
   type();
 }
+
+/* SCROLL ANIMATION */
+function revealOnScroll() {
+  let elements = document.querySelectorAll(".msg, .photo, .letter-box");
+
+  elements.forEach(el => {
+    let position = el.getBoundingClientRect().top;
+    let screenHeight = window.innerHeight;
+
+    if (position < screenHeight - 80) {
+      el.classList.add("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);

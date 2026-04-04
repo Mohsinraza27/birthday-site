@@ -1,3 +1,4 @@
+/* BASE */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -5,17 +6,16 @@ body {
   color: white;
   text-align: center;
   overflow-x: hidden;
-  transition: 0.4s;
 }
 
-/* 🌸 FLOWERS */
+/* 🌸 FLOWERS BACKGROUND */
 body::before {
   content: "🌸 🌷 🌹 💐 🌺";
   position: fixed;
   top: -10%;
   left: 0;
   width: 100%;
-  font-size: 8vw;
+  font-size: 9vw;
   opacity: 0.08;
   animation: floatFlowers 25s linear infinite;
 }
@@ -25,7 +25,26 @@ body::before {
   100% { transform: translateY(120vh); }
 }
 
-/* CENTER */
+/* ❤️ HEARTBEAT BACKGROUND PULSE */
+body::after {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255,77,141,0.15), transparent 70%);
+  animation: heartbeat 3s infinite;
+  z-index: -1;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 0.4; }
+}
+
+/* CENTER SCREEN */
 .center-screen {
   height: 100vh;
   display: flex;
@@ -33,52 +52,90 @@ body::before {
   justify-content: center;
 }
 
-/* TITLE */
+/* TITLE (BIG + CLEAR) */
 .title {
   font-family: 'Great Vibes', cursive;
-  font-size: 11vw;
+  font-size: clamp(32px, 10vw, 60px);
   color: #ff4d8d;
 }
 
-/* CHAT */
+/* CHAT BOX */
 .chat-box {
-  padding: 15px;
+  padding: 20px;
 }
 
+/* CHAT MESSAGE */
 .msg {
   max-width: 90%;
-  margin: 12px auto;
-  padding: 16px;
+  margin: 14px auto;
+  padding: 18px;
   border-radius: 20px;
-  font-size: 5.2vw;
+
+  font-size: clamp(18px, 5.5vw, 24px);
   line-height: 1.6;
+
   background: linear-gradient(45deg,#ff4d8d,#b19cd9);
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
 }
 
-/* LETTER */
+/* SHOW ANIMATION */
+.msg.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* LETTER TEXT */
 .letter-box {
   margin: 20px;
-  padding: 20px;
-  background: rgba(20,20,20,0.85);
+  padding: 25px;
+
+  background: rgba(20,20,20,0.9);
   border-radius: 15px;
-  font-size: 5.3vw;
+
+  font-size: clamp(18px, 5.5vw, 24px);
   line-height: 1.9;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+/* SCROLL SHOW */
+.letter-box.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* IMAGE */
 .photo {
   width: 85%;
-  max-width: 300px;
+  max-width: 320px;
   border-radius: 20px;
+  margin-top: 15px;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition: 0.6s ease;
+}
+
+.photo.show {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* BUTTON */
 button {
-  margin: 15px;
-  padding: 14px 25px;
-  border-radius: 25px;
+  margin: 18px;
+  padding: 16px 28px;
+
+  border-radius: 30px;
   border: none;
-  font-size: 4.5vw;
+
+  font-size: clamp(16px, 4.5vw, 20px);
+
   background: linear-gradient(45deg,#ff4d8d,#b19cd9);
   color: white;
 }
@@ -92,12 +149,12 @@ button {
 }
 
 .cake {
-  font-size: 45vw;
-  text-shadow: 0 0 60px #ff4d8d;
+  font-size: 50vw;
+  text-shadow: 0 0 80px #ff4d8d;
 }
 
 #candle {
-  font-size: 12vw;
+  font-size: 14vw;
   animation: flicker 0.6s infinite;
 }
 
