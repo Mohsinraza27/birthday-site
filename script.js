@@ -1,16 +1,33 @@
+/* SAVE MUSIC TIME */
+function saveMusicTime() {
+  let music = document.getElementById("music");
+  if (music) {
+    sessionStorage.setItem("musicTime", music.currentTime);
+  }
+}
+
 /* GLOBAL MUSIC CONTROL */
 function playMusic() {
   let music = document.getElementById("music");
 
   if (!music) return;
 
-  let isPlaying = sessionStorage.getItem("musicPlaying");
+  let savedTime = sessionStorage.getItem("musicTime");
 
-  if (isPlaying === "true") {
-    music.currentTime = 0;  // reset issue fix
-    music.play().catch(()=>{});
+  if (savedTime) {
+    music.currentTime = savedTime;
   }
+
+  music.volume = 0.4;
+
+  music.play().catch(()=>{});
+
+  // keep updating time
+  setInterval(() => {
+    saveMusicTime();
+  }, 500);
 }
+
 
 /* START */
 function startExperience() {
@@ -59,9 +76,9 @@ function startChat() {
 }
 
 /* NAVIGATION */
-function goMemory(){ window.location="memory.html"; }
-function goCake(){ window.location="cake.html"; }
-function goHome(){ window.location="index.html"; }
+function goMemory(){ saveMusicTime(); window.location="memory.html"; }
+function goCake(){ saveMusicTime(); window.location="cake.html"; }
+function goHome(){ saveMusicTime(); window.location="index.html"; }
 
 /* CAKE */
 function blowCandle(){
@@ -82,35 +99,63 @@ function startLetter(){
 
   let text = `Hey Bhaggu 💖,
 
-Okay… this is me trying something different 😌
+I know this is a bit different…
 
-I didn’t want to just send a message and disappear like everyone else.
+But you’re not random/someone I wanted to wish in a “normal” way.
 
 Because honestly…
-you’re not just "another person".
+you’re not normal.
+you're special...
 
-You have this calm, soft vibe
-that makes everything feel easy.
+There’s something about you,
+your vibe, your calmness,
+your talking way,
+the way you make things feel easy…
 
-And without even trying…
-you become someone people enjoy talking to.
+It stays.
 
-Not saying too much 😄
-
-But yeah…
-you’re special in your own way.
+You don’t even try,
+but you leave an impact.
 
 And your smile?
-Yeah… that’s still unfair 🌼
+Yeah… still unfair 😌
 
-I hope today gives you everything:
-happiness, peace, and moments you remember forever.
+Today isn’t just your birthday.
 
-Stay exactly like this…
+It’s a reminder that someone like you exists,
+and that itself makes the world a little better.
 
-Because that’s your magic ✨
+I pray for you…
 
-Happy Birthday Bhaggu 💖`;
+That your heart always stays light,
+even on heavy days.
+
+That you always find peace,
+even when life gets confusing.
+
+That every dream you quietly hold,
+finds its way to reality.
+
+That Allah protects you,
+guides you,
+and fills your life with barakah and happiness 🤍
+
+And selfishly…
+
+I just hope you stay exactly like this.
+
+Because this version of you?
+It’s rare.
+
+And yeah…
+
+I’m really glad I got to know you 🌸
+
+Happy Birthday Bhaggu 💖
+
+And the final thing 
+If You like it 
+then remmember me in Your Prayers....`;
 
   let el = document.getElementById("letterText");
   let i = 0;
@@ -121,9 +166,12 @@ Happy Birthday Bhaggu 💖`;
       i++;
       setTimeout(type, 18);
     } else {
-      el.classList.add("show"); // 🔥 FIX
-    }
-  }
+  el.classList.add("show");
+
+  setTimeout(() => {
+    alert("One more thing… you really matter 💖");
+  }, 2000);
+}
 
   type();
 }
